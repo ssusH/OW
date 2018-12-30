@@ -33,4 +33,6 @@ public class PlayerEquip : MonoBehaviour {
         CurrentWeapon.SetWeaponHandle(WeaponHandle);
         CurrentWeapon.SetButtleFlySpeed(playerState.GetBulletFlySpeedPercent());
     }
+
+    
 }

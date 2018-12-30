@@ -1,22 +1,31 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using Cinemachine;
 
 public class GameManager : MonoBehaviour {
 
     [SerializeField]
-    private CinemachineVirtualCamera camera;
+    private Camera SinceCamera;
 
-	
-	
-	// Update is called once per frame
-	void Update () {
-		
-	}
+    public static GameManager instance;
 
-    public CinemachineVirtualCamera GetMainCamera()
+    private void Awake()
     {
-        return camera;
+        if (instance != null)
+        {
+            Debug.Log("has only one gamemanager");
+        }
+        instance = this;
+    }
+
+
+    public void ChangeMainCameraStatu(bool MainCameraStatu)
+    {
+        if (SinceCamera == null)
+        {
+            return;
+        }
+        SinceCamera.gameObject.SetActive(MainCameraStatu);
+
     }
 }

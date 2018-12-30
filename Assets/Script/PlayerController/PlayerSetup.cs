@@ -20,7 +20,7 @@ public class PlayerSetup : NetworkBehaviour {
         }
         else
         {
-           
+            GameManager.instance.ChangeMainCameraStatu(false);
         }
 	}
 
@@ -36,5 +36,18 @@ public class PlayerSetup : NetworkBehaviour {
     private void ResetLayer()
     {
         gameObject.layer = LayerMask.NameToLayer(RemotePlayerLayerName);
+    }
+
+
+    private void OnDisable()
+    {
+        if (isLocalPlayer)
+        {
+            GameManager.instance.ChangeMainCameraStatu(true);
+
+        }
+
+        //GameManager.instance.RemovePlayer(transform.name);
+
     }
 }
