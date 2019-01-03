@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -10,6 +11,11 @@ public class PlayerMovement : MonoBehaviour {
     private PlayerState playerState;
     private Animator animator;
 
+    [SerializeField]
+    private GameObject PlayerImage;
+    [SerializeField]
+    private Transform PlayeImageHandle;
+
     private float moveDir_X;
 
     private bool isJump = false;
@@ -19,14 +25,18 @@ public class PlayerMovement : MonoBehaviour {
 
 	// Use this for initialization
 	void Start () {
-        animator = GetComponent<Animator>();
+        if(PlayerImage!=null)
+            animator = PlayerImage.GetComponent<Animator>();
+        
         playerMotor = GetComponent<CharacterController2D>();
+        playerMotor.setPlayerImage(PlayeImageHandle);
         playerState = GetComponent<PlayerState>();
 
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update () {
 
         moveDir_X = Input.GetAxisRaw("Horizontal")*playerState.GetSpeed();
 
@@ -62,6 +72,7 @@ public class PlayerMovement : MonoBehaviour {
 
 
     }
+    
 
     public void OnLanding()
     {
@@ -80,4 +91,6 @@ public class PlayerMovement : MonoBehaviour {
             isJump = false;
         
     }
+
+
 }

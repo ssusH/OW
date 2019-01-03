@@ -15,12 +15,12 @@ public class Pistol : Weapon {
     {
         Debug.Log("MachineGun Fire!");
         GameObject bullet = (GameObject)Instantiate(BulletPrefab, FirePoint.position, Quaternion.identity);
-        Vector3 velocity = (LockPoint - FirePoint.position).normalized * currentButtleFlySpeed;
+        Vector3 velocity = (FirePoint.position - WeaponHandle.position).normalized * currentButtleFlySpeed;
 
         bullet.GetComponent<Bullet>().SetVelocity(velocity);
     }
 
-    public override void WeaponFire()
+    public override void WeaponFire(Vector3 mousePosition)
     {
         shoot();
     }

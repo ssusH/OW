@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Networking;
 
+[RequireComponent(typeof(PlayerMovement))]
 public class PlayerSetup : NetworkBehaviour {
 
     [SerializeField]
@@ -10,6 +11,9 @@ public class PlayerSetup : NetworkBehaviour {
 
     [SerializeField]
     private string RemotePlayerLayerName;
+
+    
+    
 
     // Use this for initialization
     void Start () {
@@ -22,7 +26,8 @@ public class PlayerSetup : NetworkBehaviour {
         {
             GameManager.instance.ChangeMainCameraStatu(false);
         }
-	}
+        this.name = "Player"+Random.Range(0, 100).ToString();
+    }
 
 
     private void DisableCompoents()

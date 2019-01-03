@@ -2,9 +2,9 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.U2D;
+using UnityEngine.Networking;
 
-public abstract class Weapon : MonoBehaviour {
+public abstract class Weapon : NetworkBehaviour {
 
     [SerializeField]
     protected float Damage = 10f; //伤害
@@ -22,7 +22,9 @@ public abstract class Weapon : MonoBehaviour {
     protected Transform FirePoint;
 
     protected Transform WeaponHandle;
-    protected Vector3 LockPoint;
+
+    
+  
 
     public void SetButtleFlySpeed(float Rate)
     {
@@ -36,19 +38,18 @@ public abstract class Weapon : MonoBehaviour {
 
     public void LockEnemy(Vector3 position)
     {
-        float _x = Mathf.Abs( position.x - WeaponHandle.position.x);
+        float _x = position.x - WeaponHandle.position.x;
+        float yangle = _x < 0 ? 180 : 0;
+        _x = Mathf.Abs( _x);
         float _y = position.y - WeaponHandle.position.y;
         float angle = Mathf.Atan2(_y, _x) * Mathf.Rad2Deg;
-        WeaponHandle.localEulerAngles = new Vector3(0, 0, angle);
+        WeaponHandle.localEulerAngles = new Vector3(0, yangle, angle);
 
-        SetLockPoint(new Vector3(position.x,position.y,0));
     }
 
-    public void SetLockPoint(Vector3 position)
-    {
-        LockPoint = position;
-    }
+    
 
-    public abstract void WeaponFire();
+    public abstract void WeaponFire(Vector3 mousePosition);
+
     public abstract void CancelFire();
 }
