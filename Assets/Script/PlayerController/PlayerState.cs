@@ -1,11 +1,14 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Networking;
 
-public class PlayerState : MonoBehaviour {
+public class PlayerState : NetworkBehaviour {
 
     [SerializeField]
     private float MaxHealth = 200f;  //最大生命值
+
+    [SyncVar]
     private float NowHealth = 200f;
     [SerializeField]
     private float ChargeSpeed = 1; //充能速度 百分之多少每秒
@@ -20,8 +23,10 @@ public class PlayerState : MonoBehaviour {
     private float MoveSpeedPercent = 1; //移速百分比
     private float HealthPercent = 1; //生命值百分比
 
-    private float EnergySpeed = 1; 
+    private float EnergySpeed = 1;
 
+    [SyncVar]
+    public bool isDead = false;
 
     
 
@@ -30,6 +35,8 @@ public class PlayerState : MonoBehaviour {
         DefaultSet();
 
     }
+
+    
 
     public float GetSpeed()
     {
@@ -45,19 +52,46 @@ public class PlayerState : MonoBehaviour {
 
     }
 	
+    
+    
+    [Client]
     public void GetAttack(float Damage)
     {
+        CmdGetAttack(Damage);
+    }
+
+    [Command]
+    public void CmdGetAttack(float Damage)
+    {
+        Debug.Log(name + " GetAttack!"+Damage);
+        RpcGetAttack(Damage);
+    }
+
+    [ClientRpc]
+    public void RpcGetAttack(float Damage)
+    {
+        if(isDead)
+        {
+            return;
+        }
         NowHealth -= (Damage * InjuredPercent);
-        if(NowHealth<0)
+        Debug.Log(name + NowHealth);
+        if (NowHealth < 0)
         {
             NowHealth = 0;
-            //死亡
+            Destroy(this.gameObject);
+            Debug.Log(name + " Health<0 ,It Dead!");
         }
-
     }
+
 
     public float GetBulletFlySpeedPercent()
     {
         return BulletFlySpeedPercent;
+    }
+
+    public float GetDamagePercent()
+    {
+        return DamagePercent;
     }
 }

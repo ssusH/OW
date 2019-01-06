@@ -118,7 +118,7 @@ GameObject:
   - component: {fileID: 114429973036282050}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472597516439148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 4.50432, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4472266287459400}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1184916875539568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000035762787, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000023841858, y: 4.50432, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600499236966204}
@@ -673,6 +673,7 @@ MonoBehaviour:
   - {fileID: 114690706452078434}
   - {fileID: 20251665197145358}
   - {fileID: 114983740257347134}
+  - {fileID: 114753778527148050}
   RemotePlayerLayerName: RemotePlayerLayer
 --- !u!114 &114690706452078434
 MonoBehaviour:
@@ -742,6 +743,7 @@ MonoBehaviour:
   MaxHealth: 200
   ChargeSpeed: 1
   MoveSpeed: 40
+  isDead: 0
 --- !u!114 &114789080189943742
 MonoBehaviour:
   m_ObjectHideFlags: 1

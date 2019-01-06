@@ -84,7 +84,7 @@ MonoBehaviour:
   Damage: 10
   FireRate: 10
   MaxAngle: 90
-  ButtleFlySpeed: 20
+  ButtleFlySpeed: 25
   FirePoint: {fileID: 4078476067809622}
   BulletPrefab: {fileID: 1811444674064492, guid: 8e9f2455237bde9498d13b2eae0c2e74,
     type: 2}

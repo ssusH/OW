@@ -52,7 +52,6 @@ public class PlayerAttack : NetworkBehaviour {
     [Command]
     void CmdOnBeginShoot(Vector3 mousePosition)
     {
-        Debug.Log(this.name + "Shoot!" +mousePosition);
         RpcBeginShoot(mousePosition);
     }
 

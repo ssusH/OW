@@ -23,6 +23,8 @@ GameObject:
   - component: {fileID: 114369718194071560}
   - component: {fileID: 58174875140114968}
   - component: {fileID: 50437230784307628}
+  - component: {fileID: 114976704759816676}
+  - component: {fileID: 114726020312789638}
   m_Layer: 0
   m_Name: Bullt
   m_TagString: Untagged
@@ -90,6 +92,59 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   lifeTime: 5
+--- !u!114 &114726020312789638
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811444674064492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: -1768714887, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_TransformSyncMode: 2
+  m_SendInterval: 0.1
+  m_SyncRotationAxis: 3
+  m_RotationSyncCompression: 0
+  m_SyncSpin: 0
+  m_MovementTheshold: 0.001
+  m_VelocityThreshold: 0.0001
+  m_SnapThreshold: 5
+  m_InterpolateRotation: 1
+  m_InterpolateMovement: 1
+--- !u!114 &114976704759816676
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1811444674064492}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 372142912, guid: dc443db3e92b4983b9738c1131f555cb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_SceneId:
+    m_Value: 0
+  m_AssetId:
+    i0: 142
+    i1: 159
+    i2: 36
+    i3: 85
+    i4: 35
+    i5: 123
+    i6: 222
+    i7: 148
+    i8: 152
+    i9: 209
+    i10: 59
+    i11: 46
+    i12: 174
+    i13: 12
+    i14: 46
+    i15: 116
+  m_ServerOnly: 0
+  m_LocalPlayerAuthority: 1
 --- !u!212 &212671349169376316
 SpriteRenderer:
   m_ObjectHideFlags: 1

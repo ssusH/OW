@@ -31,6 +31,7 @@ public class PlayerEquip : MonoBehaviour {
         CurrentWeapon = WeaponInstance.GetComponent<Weapon>();
         CurrentWeapon.SetWeaponHandle(WeaponHandle);
         CurrentWeapon.SetButtleFlySpeed(playerState.GetBulletFlySpeedPercent());
+        CurrentWeapon.SetWeaponDamage(playerState.GetDamagePercent());
         playerAttack.SetCurrentWeapon(CurrentWeapon);
     }
 

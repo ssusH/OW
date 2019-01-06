@@ -7,7 +7,11 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Camera SinceCamera;
 
+    private static Dictionary<string,PlayerState> PlayerList = new Dictionary<string, PlayerState>();
+
     public static GameManager instance;
+
+    private const string PLAYER_ID_PREFIX = "Player";
 
     private void Awake()
     {
@@ -18,6 +22,18 @@ public class GameManager : MonoBehaviour {
         instance = this;
     }
 
+
+    public static void RegisterPlayer(string _netID, PlayerState _player)
+    {
+        string _playerID = PLAYER_ID_PREFIX + _netID;
+        PlayerList.Add(_playerID, _player);
+        _player.transform.name = _playerID;
+    }
+
+    public void RemovePlayer(string name)
+    {
+        PlayerList.Remove(name);
+    }
 
     public void ChangeMainCameraStatu(bool MainCameraStatu)
     {

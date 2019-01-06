@@ -31,6 +31,12 @@ public abstract class Weapon : NetworkBehaviour {
         currentButtleFlySpeed = ButtleFlySpeed * Rate;
     }
 
+
+    public void SetWeaponDamage(float Rate)
+    {
+        Damage = Damage * Rate;
+    }
+
     public void SetWeaponHandle(Transform weaponHandle)
     {
         WeaponHandle = weaponHandle;
@@ -47,7 +53,6 @@ public abstract class Weapon : NetworkBehaviour {
 
     }
 
-    
 
     public abstract void WeaponFire(Vector3 mousePosition);
 

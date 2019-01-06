@@ -21,13 +21,24 @@ public class PlayerSetup : NetworkBehaviour {
         {
             DisableCompoents();
             ResetLayer();
+            //SetMemberTag();
+
         }
         else
         {
             GameManager.instance.ChangeMainCameraStatu(false);
         }
-        this.name = "Player"+Random.Range(0, 100).ToString();
+        
     }
+
+
+    public override void OnStartClient()
+    {
+        base.OnStartClient();
+        string _netID = GetComponent<NetworkIdentity>().netId.ToString();
+        GameManager.RegisterPlayer(_netID, GetComponent<PlayerState>());
+    }
+
 
 
     private void DisableCompoents()
@@ -36,6 +47,11 @@ public class PlayerSetup : NetworkBehaviour {
         {
             ComponentsBehaviours[i].enabled = false;
         }
+    }
+
+    public void SetMemberTag()
+    {
+        tag = "MatchPlayer";
     }
 
     private void ResetLayer()
@@ -51,8 +67,8 @@ public class PlayerSetup : NetworkBehaviour {
             GameManager.instance.ChangeMainCameraStatu(true);
 
         }
-
-        //GameManager.instance.RemovePlayer(transform.name);
+        GameManager.instance.RemovePlayer(transform.name);
+        
 
     }
 }
