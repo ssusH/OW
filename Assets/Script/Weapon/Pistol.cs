@@ -16,7 +16,7 @@ public class Pistol : Weapon {
         Debug.Log("MachineGun Fire!");
         GameObject bullet = (GameObject)Instantiate(BulletPrefab, FirePoint.position, Quaternion.identity);
         Vector3 velocity = (FirePoint.position - WeaponHandle.position).normalized * currentButtleFlySpeed;
-
+        currentButtleSum--;
         bullet.GetComponent<Bullet>().SetDefaut(velocity,Damage,transform.parent.parent.name);
     }
 
@@ -28,5 +28,10 @@ public class Pistol : Weapon {
     public override void CancelFire()
     {
         
+    }
+
+    public override void Reload()
+    {
+      
     }
 }

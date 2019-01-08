@@ -39,6 +39,11 @@ public class PlayerAttack : NetworkBehaviour {
             CancleShoot();
         }
 
+        if(Input.GetKeyDown(KeyCode.R))
+        {
+            weapon.Reload();
+        }
+
     }
 
 

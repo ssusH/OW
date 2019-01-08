@@ -11,7 +11,12 @@ public abstract class Weapon : NetworkBehaviour {
     [SerializeField]
     protected float FireRate = 1; //开火率
     [SerializeField]
-    protected float MaxAngle = 85; //射击角度
+    protected float MaxAngle = 90; //射击角度
+    [SerializeField]
+    protected int MaxButtleSum = 26; //最大子弹数
+    protected int currentButtleSum = 26; //当前子弹数
+    protected float ReloadTime = 2f; //换弹时间
+    protected bool canShoot = true; //允许射击
 
     [SerializeField]
     protected float ButtleFlySpeed = 30f;
@@ -31,10 +36,12 @@ public abstract class Weapon : NetworkBehaviour {
         currentButtleFlySpeed = ButtleFlySpeed * Rate;
     }
 
+    
 
     public void SetWeaponDamage(float Rate)
     {
         Damage = Damage * Rate;
+        
     }
 
     public void SetWeaponHandle(Transform weaponHandle)
@@ -55,6 +62,9 @@ public abstract class Weapon : NetworkBehaviour {
 
 
     public abstract void WeaponFire(Vector3 mousePosition);
+
+    
+    public abstract void Reload();
 
     public abstract void CancelFire();
 }
