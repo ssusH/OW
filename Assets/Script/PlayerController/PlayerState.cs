@@ -36,7 +36,13 @@ public class PlayerState : NetworkBehaviour {
 
     }
 
-    
+    private void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.K))
+        {
+            GetAttack(5);
+        }
+    }
 
     public float GetSpeed()
     {
@@ -93,5 +99,18 @@ public class PlayerState : NetworkBehaviour {
     public float GetDamagePercent()
     {
         return DamagePercent;
+    }
+
+    public float GetCurrentHealth()
+    {
+        return NowHealth;
+    }
+    public float GetMaxHealth()
+    {
+        return MaxHealth;
+    }
+    public float NowHealthPercent()
+    {
+        return NowHealth / MaxHealth;
     }
 }

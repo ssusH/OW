@@ -29,19 +29,21 @@ public abstract class Weapon : NetworkBehaviour {
     protected Transform WeaponHandle;
 
     
-  
-
-    public void SetButtleFlySpeed(float Rate)
+    public int GetCurrentButtleSum()
     {
-        currentButtleFlySpeed = ButtleFlySpeed * Rate;
+        return currentButtleSum;
+    }
+    public int GetMaxButtleSum()
+    {
+        return MaxButtleSum;
     }
 
-    
-
-    public void SetWeaponDamage(float Rate)
+    //设置武器的子弹飞行速度和伤害
+    public void SetWeaponDamage(float DamageRate, float SpeedRate)
     {
-        Damage = Damage * Rate;
-        
+        Damage = Damage * DamageRate;
+        currentButtleFlySpeed = ButtleFlySpeed * SpeedRate;
+        currentButtleSum = MaxButtleSum;
     }
 
     public void SetWeaponHandle(Transform weaponHandle)

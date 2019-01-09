@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472597516439148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 4.50432, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4472266287459400}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1184916875539568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000023841858, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 4.50432, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600499236966204}
@@ -674,6 +674,8 @@ MonoBehaviour:
   - {fileID: 20251665197145358}
   - {fileID: 114983740257347134}
   - {fileID: 114753778527148050}
+  BattleUiPrefab: {fileID: 1093483491210952, guid: de2201b440f7fc945869fcb438c5b07e,
+    type: 2}
   RemotePlayerLayerName: RemotePlayerLayer
 --- !u!114 &114690706452078434
 MonoBehaviour:
@@ -740,7 +742,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c31bebe11e95ee6468fbef9d47f532ad, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  MaxHealth: 200
+  MaxHealth: 250
   ChargeSpeed: 1
   MoveSpeed: 40
   isDead: 0

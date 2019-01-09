@@ -4,11 +4,16 @@ using UnityEngine;
 using UnityEngine.Networking;
 
 [RequireComponent(typeof(PlayerMovement))]
+[RequireComponent(typeof(PlayerState))]
+[RequireComponent(typeof(PlayerAttack))]
 public class PlayerSetup : NetworkBehaviour {
 
     [SerializeField]
     Behaviour[] ComponentsBehaviours;
 
+    [SerializeField]
+    private GameObject BattleUiPrefab;
+    private GameObject BattleUi;
     [SerializeField]
     private string RemotePlayerLayerName;
 
@@ -22,11 +27,14 @@ public class PlayerSetup : NetworkBehaviour {
             DisableCompoents();
             ResetLayer();
             //SetMemberTag();
+           
 
         }
         else
         {
             GameManager.instance.ChangeMainCameraStatu(false);
+            BattleUi = Instantiate(BattleUiPrefab);
+            BattleUi.GetComponent<BattleUI>().SetPlayerSetUp(this);
         }
         
     }
@@ -39,7 +47,10 @@ public class PlayerSetup : NetworkBehaviour {
         GameManager.RegisterPlayer(_netID, GetComponent<PlayerState>());
     }
 
-
+    public void SetBattleUIDefault(BattleUI battleUI)
+    {
+        battleUI.SetDefaultUI(GetComponent<PlayerState>(), GetComponent<PlayerAttack>().GetCurrentWeapon());
+    }
 
     private void DisableCompoents()
     {
@@ -65,6 +76,7 @@ public class PlayerSetup : NetworkBehaviour {
         if (isLocalPlayer)
         {
             GameManager.instance.ChangeMainCameraStatu(true);
+            Destroy(BattleUi);
 
         }
         GameManager.instance.RemovePlayer(transform.name);

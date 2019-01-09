@@ -21,6 +21,14 @@ public class PlayerAttack : NetworkBehaviour {
         weapon = _weapon;
     }
 
+    public Weapon GetCurrentWeapon()
+    {
+
+        return weapon;
+    }
+
+
+
     // Update is called once per frame
     void Update () {
 
