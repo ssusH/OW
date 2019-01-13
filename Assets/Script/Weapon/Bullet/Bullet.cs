@@ -34,7 +34,9 @@ public class Bullet : MonoBehaviour {
         if(collision.tag == "Player"&& collision.name!=shooterName)
         {
             //Debug.Log("HIT MATCH !");
-            collision.SendMessage("RpcGetAttack", Damage);
+            
+            collision.GetComponent<PlayerState>().RpcGetAttack(Damage, shooterName);
+            //SendMessage("RpcGetAttack", Damage);
             Destroy(this.gameObject);
         }
     }

@@ -28,7 +28,6 @@ public class PlayerSetup : NetworkBehaviour {
             ResetLayer();
             //SetMemberTag();
            
-
         }
         else
         {
@@ -77,7 +76,6 @@ public class PlayerSetup : NetworkBehaviour {
         {
             GameManager.instance.ChangeMainCameraStatu(true);
             Destroy(BattleUi);
-
         }
         GameManager.instance.RemovePlayer(transform.name);
         

@@ -192,7 +192,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1472597516439148}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 3.1279998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4472266287459400}
@@ -317,7 +317,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1184916875539568}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.00000047683716, y: 4.50432, z: -10}
+  m_LocalPosition: {x: -0.00000047683716, y: 3.1279998, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
   - {fileID: 4600499236966204}
@@ -498,7 +498,7 @@ MonoBehaviour:
   m_YDamping: 1
   m_ZDamping: 1
   m_ScreenX: 0.5
-  m_ScreenY: 0.788
+  m_ScreenY: 0.7
   m_CameraDistance: 10
   m_DeadZoneWidth: 0.2
   m_DeadZoneHeight: 0.1
@@ -673,7 +673,6 @@ MonoBehaviour:
   - {fileID: 114690706452078434}
   - {fileID: 20251665197145358}
   - {fileID: 114983740257347134}
-  - {fileID: 114753778527148050}
   BattleUiPrefab: {fileID: 1093483491210952, guid: de2201b440f7fc945869fcb438c5b07e,
     type: 2}
   RemotePlayerLayerName: RemotePlayerLayer
@@ -746,6 +745,14 @@ MonoBehaviour:
   ChargeSpeed: 1
   MoveSpeed: 40
   isDead: 0
+  DisableObjWhenDie:
+  - {fileID: 1898686804015842}
+  - {fileID: 1870308482571190}
+  DisableWhenDie:
+  - {fileID: 61260710973028774}
+  - {fileID: 58496553035697296}
+  - {fileID: 114051694539910762}
+  - {fileID: 114368403962099964}
 --- !u!114 &114789080189943742
 MonoBehaviour:
   m_ObjectHideFlags: 1

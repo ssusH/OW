@@ -49,7 +49,7 @@ public class PlayerAttack : NetworkBehaviour {
 
         if(Input.GetKeyDown(KeyCode.R))
         {
-            weapon.Reload();
+            Reload();
         }
 
     }
@@ -73,9 +73,7 @@ public class PlayerAttack : NetworkBehaviour {
     {
         weapon.WeaponFire(mousePosition);
     }
-
-
-
+    
     [Client]
     void CancleShoot()
     {
@@ -94,5 +92,25 @@ public class PlayerAttack : NetworkBehaviour {
     {
         weapon.CancelFire();
     }
+
+    [Client]
+    void Reload()
+    {
+        CmdOnReload();
+    }
+
+
+    [Command]
+    void CmdOnReload()
+    {
+        RpcReload();
+    }
+
+    [ClientRpc]
+    void RpcReload()
+    {
+        weapon.Reload();
+    }
+
 
 }
