@@ -156,6 +156,7 @@ public class PlayerState : NetworkBehaviour {
    
     private IEnumerator Respawn()
     {
+
         yield return new WaitForSeconds(RespawnTime);
 
         isDead = false;
