@@ -7,6 +7,9 @@ public class GameManager : MonoBehaviour {
     [SerializeField]
     private Camera SinceCamera;
 
+    [SerializeField]
+    private GameObject MainMenue;
+
     private static Dictionary<string,PlayerState> PlayerList = new Dictionary<string, PlayerState>();
 
     public static GameManager instance;
@@ -42,6 +45,19 @@ public class GameManager : MonoBehaviour {
             return;
         }
         SinceCamera.gameObject.SetActive(MainCameraStatu);
+
+    }
+
+    private void Update()
+    {
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            MainMenue.SetActive(!MainMenue.active);
+        }
+    }
+
+    public void quitCurrentRoom()
+    {
 
     }
 }

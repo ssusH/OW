@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.Networking;
 using UnityEngine.Networking.Match;
 
@@ -10,6 +11,15 @@ public class JoinGame : MonoBehaviour {
     private Transform RoomListPlane;
     [SerializeField]
     private GameObject RoomListButtonPrefab;
+
+    [SerializeField]
+    private GameObject JoinMask;
+    [SerializeField]
+    private GameObject JoinMaskClose;
+    [SerializeField]
+    private Text JoinMaskText;
+
+
 
     public List<GameObject> roomList = new List<GameObject>();
 
@@ -26,7 +36,7 @@ public class JoinGame : MonoBehaviour {
         RefreshRoomList();
     }
 
-    public  void RefreshRoomList()
+    public void RefreshRoomList()
     {
         ClearRoomList();
 
@@ -35,8 +45,25 @@ public class JoinGame : MonoBehaviour {
 
     public void joinMatch(MatchInfoSnapshot match)
     {
-        networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0, networkManager.OnMatchJoined);
+        
+        JoinMaskClose.SetActive(false);
+        JoinMaskText.text = "连线中。。";
+        JoinMask.SetActive(true);
+        networkManager.matchMaker.JoinMatch(match.networkId, "", "", "", 0, 0,OnMatchJoined);
         ClearRoomList();
+    }
+
+    private void OnMatchJoined(bool success, string extendedInfo, MatchInfo matchInfo)
+    {
+        
+        Debug.Log(success + " " + extendedInfo + " " + matchInfo + " ");
+        // ...
+        if (!success)
+        {
+            JoinMaskClose.SetActive(true);
+            JoinMaskText.text = "连接失败";
+        }
+        networkManager.OnMatchJoined(success, extendedInfo, matchInfo);
     }
 
     private void OnMatchList(bool success, string extendedInfo, List<MatchInfoSnapshot> responseData)
