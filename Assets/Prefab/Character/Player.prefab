@@ -116,6 +116,8 @@ GameObject:
   - component: {fileID: 114789080189943742}
   - component: {fileID: 95402250494563070}
   - component: {fileID: 114429973036282050}
+  - component: {fileID: 114291734251179376}
+  - component: {fileID: 114451838327026992}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -539,6 +541,21 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
+--- !u!114 &114291734251179376
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564664114069668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5b51d24f7b50f8d46aa8c9c7ad860c14, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKey: 101
+  UiBarName: 0
+  Skill_Cd: 3
+  SkillIcon: {fileID: 21300000, guid: d01b0b4f13e044d0c83c424e542ddcbf, type: 3}
 --- !u!114 &114355357020137974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -599,6 +616,21 @@ MonoBehaviour:
   m_BoundingShape2D: {fileID: 0}
   m_ConfineScreenEdges: 1
   m_Damping: 0
+--- !u!114 &114451838327026992
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564664114069668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 026f8736ea072714ca247918dbb5a3e3, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKey: 304
+  UiBarName: 1
+  Skill_Cd: 2
+  SkillIcon: {fileID: 21300000, guid: d094cf6ac3d8a4d0bbbef5d6d6ad3eed, type: 3}
 --- !u!114 &114476702527914412
 MonoBehaviour:
   m_ObjectHideFlags: 1

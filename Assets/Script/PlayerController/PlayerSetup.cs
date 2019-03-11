@@ -17,8 +17,7 @@ public class PlayerSetup : NetworkBehaviour {
     [SerializeField]
     private string RemotePlayerLayerName;
 
-    
-    
+
 
     // Use this for initialization
     void Start () {
