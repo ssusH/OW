@@ -20,6 +20,7 @@ public class PlayerState : NetworkBehaviour {
     private float DamagePercent = 1;//伤害百分比
     private float InjuredPercent = 1;//受伤百分比
     private float CurePercent = 1;//治疗百分比
+
     private float MoveSpeedPercent = 1; //移速百分比
     private float HealthPercent = 1; //生命值百分比
 
@@ -78,7 +79,10 @@ public class PlayerState : NetworkBehaviour {
         return MoveSpeed * MoveSpeedPercent;
     }
 
-    
+    public void SetMoveSpeedPercent(float percent)
+    {
+        MoveSpeedPercent = percent;
+    }
 
     //初始化人物状态
     void DefaultSet() 
@@ -150,6 +154,10 @@ public class PlayerState : NetworkBehaviour {
             NowHealth = 0;
             PlayerDie(form);
             Debug.Log(name + " Health<0 ,It Dead!");
+        }
+        if(NowHealth>MaxHealth)
+        {
+            NowHealth = GetMaxHealth();
         }
     }
 

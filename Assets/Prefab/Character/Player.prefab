@@ -116,8 +116,8 @@ GameObject:
   - component: {fileID: 114789080189943742}
   - component: {fileID: 95402250494563070}
   - component: {fileID: 114429973036282050}
-  - component: {fileID: 114291734251179376}
   - component: {fileID: 114451838327026992}
+  - component: {fileID: 114719296001710640}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -541,21 +541,6 @@ MonoBehaviour:
   m_MovementThreshold: 0.001
   m_InterpolateRotation: 0.5
   m_InterpolateMovement: 0.5
---- !u!114 &114291734251179376
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1564664114069668}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5b51d24f7b50f8d46aa8c9c7ad860c14, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  hotKey: 101
-  UiBarName: 0
-  Skill_Cd: 3
-  SkillIcon: {fileID: 21300000, guid: d01b0b4f13e044d0c83c424e542ddcbf, type: 3}
 --- !u!114 &114355357020137974
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -629,8 +614,12 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hotKey: 304
   UiBarName: 1
-  Skill_Cd: 2
+  Skill_Cd: 5
   SkillIcon: {fileID: 21300000, guid: d094cf6ac3d8a4d0bbbef5d6d6ad3eed, type: 3}
+  EffectStrength: 2
+  DurationTime: 3
+  ParticleEffectPrefab: {fileID: 1123460986025538, guid: f57cdaff46cb02a4aaba1c9244b01c9a,
+    type: 2}
 --- !u!114 &114476702527914412
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -762,6 +751,25 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: CharacterController2D+BoolEvent, Assembly-CSharp, Version=0.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &114719296001710640
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1564664114069668}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 80937002ac5afa547966a6ded9a10bbb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hotKey: 101
+  UiBarName: 0
+  Skill_Cd: 10
+  SkillIcon: {fileID: 21300000, guid: d01b0b4f13e044d0c83c424e542ddcbf, type: 3}
+  CureRate: 10
+  DurationTime: 5
+  HealthFieldPrefab: {fileID: 1926041763878652, guid: a20fa6e5cdfba4044a610f542ee07ade,
+    type: 2}
 --- !u!114 &114753778527148050
 MonoBehaviour:
   m_ObjectHideFlags: 1

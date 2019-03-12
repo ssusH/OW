@@ -53,8 +53,8 @@ public class BattleUI : MonoBehaviour {
     {
         if (_player == null)
             return;
-        
-        CurrentHp.text = _player.GetCurrentHealth().ToString();
+        int h = Mathf.CeilToInt(_player.GetCurrentHealth());
+        CurrentHp.text = h.ToString();
         HpBar.rectTransform.localScale = new Vector3( _player.NowHealthPercent(),1);
 
     }
